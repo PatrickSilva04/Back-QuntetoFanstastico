@@ -40,9 +40,6 @@ npm install @prisma/client
 ✅ Sugestão de script dev no package.json
 Adicione isso dentro de "scripts" no package.json:
 
-json
-Copiar
-Editar
 "scripts": {
   "dev": "ts-node-dev --respawn src/index.ts",
   "start": "node dist/index.js"
