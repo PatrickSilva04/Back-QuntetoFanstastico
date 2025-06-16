@@ -36,6 +36,7 @@ npx prisma generate
 🧩 8. Instalar o cliente Prisma
 
 npm install @prisma/client
+
 ✅ Sugestão de script dev no package.json
 Adicione isso dentro de "scripts" no package.json:
 
