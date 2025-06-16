@@ -51,6 +51,8 @@ npm install @prisma/client
 Adicione isso dentro de "scripts" no package.json:
 
 "scripts": {
+
   "dev": "ts-node-dev --respawn src/index.ts",
   "start": "node dist/index.js"
+
 }
