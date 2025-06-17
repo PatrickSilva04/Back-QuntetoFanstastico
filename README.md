@@ -57,3 +57,8 @@ Adicione isso dentro de "scripts" no package.json:
   "start": "node dist/index.js"
 
 }
+
+✅ Dica importante Adicone isso no seu .env
+
+"DATABASE_URL="file:./dev.db"
+
