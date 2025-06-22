@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -11,21 +8,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int    @id @default(autoincrement())
-  name     String @unique
-  email    String
-  password String
+model Usuario {
+  id         Int                  @id @default(autoincrement())
+  cpf        String               @unique
+  senha      String
+  tipo       String // "FISICA" ou "JURIDICA"
+  historicos HistoricoPagamento[]
+  recargas   Recarga[]
+
+  Cartao Cartao[]
 }
 
-model Pet {
+model Cartao {
+  id        Int     @id @default(autoincrement())
+  numero    String  @unique
+  usuarioId Int
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+}
+
+model Recarga {
+  id        Int      @id @default(autoincrement())
+  valor     Float
+  tipo      String // Pix, Cartão, Boleto
+  data      DateTime @default(now())
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+}
+
+model HistoricoPagamento {
+  id        Int      @id @default(autoincrement())
+  data      DateTime
+  valor     Float
+  cartao    String
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+}
+
+model LinhaOnibus {
   id          Int    @id @default(autoincrement())
-  image       String
-  animal      String
-  name        String
-  race        String
-  description String
-  age         Float
-  size        String
-  cep         String
+  nome        String
+  corLinha    String
+  categoria   String
+  abrangencia String
+  tipo        String
+  pagamento   String
+  endereco    String
 }

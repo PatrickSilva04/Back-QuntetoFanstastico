@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.9.0
- * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
+ * Prisma Client JS version: 6.10.1
+ * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
  */
 Prisma.prismaVersion = {
-  client: "6.9.0",
-  engine: "81e4af48011447c3cc503a190e86995b66d2a28e"
+  client: "6.10.1",
+  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -117,23 +117,44 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.UsuarioScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  email: 'email',
-  password: 'password'
+  cpf: 'cpf',
+  senha: 'senha',
+  tipo: 'tipo'
 };
 
-exports.Prisma.PetScalarFieldEnum = {
+exports.Prisma.CartaoScalarFieldEnum = {
   id: 'id',
-  image: 'image',
-  animal: 'animal',
-  name: 'name',
-  race: 'race',
-  description: 'description',
-  age: 'age',
-  size: 'size',
-  cep: 'cep'
+  numero: 'numero',
+  usuarioId: 'usuarioId'
+};
+
+exports.Prisma.RecargaScalarFieldEnum = {
+  id: 'id',
+  valor: 'valor',
+  tipo: 'tipo',
+  data: 'data',
+  usuarioId: 'usuarioId'
+};
+
+exports.Prisma.HistoricoPagamentoScalarFieldEnum = {
+  id: 'id',
+  data: 'data',
+  valor: 'valor',
+  cartao: 'cartao',
+  usuarioId: 'usuarioId'
+};
+
+exports.Prisma.LinhaOnibusScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  corLinha: 'corLinha',
+  categoria: 'categoria',
+  abrangencia: 'abrangencia',
+  tipo: 'tipo',
+  pagamento: 'pagamento',
+  endereco: 'endereco'
 };
 
 exports.Prisma.SortOrder = {
@@ -143,8 +164,11 @@ exports.Prisma.SortOrder = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User',
-  Pet: 'Pet'
+  Usuario: 'Usuario',
+  Cartao: 'Cartao',
+  Recarga: 'Recarga',
+  HistoricoPagamento: 'HistoricoPagamento',
+  LinhaOnibus: 'LinhaOnibus'
 };
 
 /**

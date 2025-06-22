@@ -1,11 +1,21 @@
-import http from 'http'
-import app from './app'
+import express from 'express';
+import cors from 'cors';
 
+import userRoutes from './routes/userRoutes';
+import rechargeRoutes from './routes/rechargeRoutes';
+import historicoRoutes from './routes/historicoRoutes';
+import linhasRoutes from './routes/linhasRoutes';
 
-const port = 9090
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-const server = http.createServer(app)
+app.use('/api', userRoutes);
+app.use('/api', rechargeRoutes);
+app.use('/api', historicoRoutes);
+app.use('/api', linhasRoutes);
 
-server.listen(port, () => {
-    return console.log(`App listening on port ${port}`)
-})
+const PORT = process.env.PORT || 3333;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
